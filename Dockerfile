@@ -2,6 +2,7 @@
 FROM eclipse-temurin:21-jdk-jammy AS build
 WORKDIR /home/gradle/src
 COPY --chown=gradle:gradle . .
+RUN chmod +x ./gradlew
 RUN ./gradlew build --no-daemon -x test
 
 # Run Stage
